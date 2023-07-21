@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{42CE020F-B0C6-4204-971B-545BE293B729}"
+	ProjectSection(SolutionItems) = preProject
+		Slides\PG2_08_Inheritance.pdf = Slides\PG2_08_Inheritance.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day08", "Day08\Day08.csproj", "{5F0732DA-1970-4977-BC89-9D6B406D1643}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day08CL", "Day08CL\Day08CL.csproj", "{59A70A4A-42A9-429B-AE94-456FA02DDF83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F0732DA-1970-4977-BC89-9D6B406D1643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0732DA-1970-4977-BC89-9D6B406D1643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0732DA-1970-4977-BC89-9D6B406D1643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0732DA-1970-4977-BC89-9D6B406D1643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A70A4A-42A9-429B-AE94-456FA02DDF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A70A4A-42A9-429B-AE94-456FA02DDF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A70A4A-42A9-429B-AE94-456FA02DDF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A70A4A-42A9-429B-AE94-456FA02DDF83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4061C35E-485F-4E2F-8537-D29CDB0324C8}
+	EndGlobalSection
+EndGlobal

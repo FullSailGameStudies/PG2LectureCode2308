@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day01", "Day01\Day01.csproj", "{BB159293-4572-4E43-92BA-4F24269EC831}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7606E105-F157-4AF5-A528-BEB29722F791}"
+	ProjectSection(SolutionItems) = preProject
+		Slides\PG2_01_Methods.pdf = Slides\PG2_01_Methods.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB159293-4572-4E43-92BA-4F24269EC831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB159293-4572-4E43-92BA-4F24269EC831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB159293-4572-4E43-92BA-4F24269EC831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB159293-4572-4E43-92BA-4F24269EC831}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AACD6A1-F5BA-4506-B1E1-25D12075E169}
+	EndGlobalSection
+EndGlobal
