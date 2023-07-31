@@ -215,6 +215,32 @@ namespace Day01
                     loop over the grades vector and print out each grade
 
             */
+            List<float> grades = new List<float>();
+            Random randy = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                grades.Add((float)randy.NextDouble() * 100);
+            }
+            Console.WriteLine("\n\n  PG 2 August Grades  ");
+            //for(int i = 0;i < grades.Count;i++)
+            //int j = 0;
+            //while(j < grades.Count)
+            foreach (float grade in grades)
+            {
+                //float grade = grades[j++];
+                //  ,7  right-aligns in 7 spaces
+                //  :N2 formats as a number w/ 2 decimal places
+                Console.CursorLeft = 6;
+
+                //ternary operator. short-hand for an if-else block
+                Console.ForegroundColor = (grade<59.5) ?   ConsoleColor.Red :
+                                          (grade < 69.5) ? ConsoleColor.DarkYellow :
+                                          (grade < 79.5) ? ConsoleColor.Yellow :
+                                          (grade < 89.5) ? ConsoleColor.Blue : 
+                                                           ConsoleColor.Green; 
+                Console.WriteLine($"{grade,7:N2}");
+            }
+            Console.ResetColor();
 
 
 
