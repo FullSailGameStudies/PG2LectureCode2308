@@ -49,10 +49,18 @@ namespace Day01
      */
     internal class Program
     {
+        static void PrintWorld(string world)//pass by value
+        {
+            //$ - interpolated string
+            Console.WriteLine($"Hello {world}.");
+        }
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            string myWorld = "Spiderverse-808";
+            PrintWorld(myWorld);
+            Program.PrintWorld("Gotham");
             /*
               Calling a method
                 use the methods name.
@@ -79,14 +87,21 @@ namespace Day01
             /*
                 CHALLENGE 1:
 
-                    Add an isEven method to the calculator.
-                    It should take 1 parameter and return a bool.
+                    Add an IsEven method to the calculator.
+                    It should take 1 int parameter and return a bool.
 
                     Call the method on the t1000 calculator instance and print the results.
 
             */
-            Calculator t1000 = new Calculator();
+            Calculator t1000 = new Calculator();//created an instance of Calculator
 
+            //static methods: use the class name
+            Calculator.WhoAmI();
+
+            //non-static methods: use the variable instead.
+            t1000.Sum(5, 10);
+            bool isEven = t1000.IsEven(number);//assign the returned bool to a variable
+            Console.WriteLine($"{number} is even? {isEven}");
 
 
 
@@ -189,6 +204,14 @@ namespace Day01
 
     class Calculator
     {
+        public static void WhoAmI()
+        {
+            Console.WriteLine("I am a T-800. A cybernetic organism");
+        }
+        public bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
         public int Sum(int num1, int num2)
         {
             return num1 + num2;
