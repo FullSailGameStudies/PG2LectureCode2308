@@ -248,7 +248,7 @@ namespace Day01
 
 
             /*
-                BOSS CHALLENGE:
+                BOSS CHALLENGE: 
 
                     1) Fix the Average method of the calculator class to calculate the average of the list parameter.
                     2) Call the Average method on the t1000 variable and pass your grades list to the method.
