@@ -119,6 +119,19 @@ namespace Day01
             List<string> names = new List<string>(); //this list stores strings and only strings.
 
 
+            string[] best = new string[3] { "Batman", "The Bat", "Bruce" };
+
+            Console.WriteLine("The Best!");
+            for (int i = 0; i < best.Length;i++)
+            {
+                Console.WriteLine(best[i]);//use the indexer
+            }
+            best[2] = "The Greatest Detective";
+            foreach (string name in best)
+            {
+                Console.WriteLine(name);
+            }
+            
 
 
 
