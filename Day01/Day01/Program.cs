@@ -116,8 +116,37 @@ namespace Day01
                 
                 When you want to create a List variable, replace T with whatever type of data you want to store in the List.
             */
-            List<string> names = new List<string>(); //this list stores strings and only strings.
+            List<string> names = new List<string>(10);// { "Aquaman", "Batman", "Wonder Woman" };//this list stores strings and only strings.
+            Info(names);//Count: 0  Capacity: 0
+            names.Add("Superman");//adds to the END of the list
+            Info(names);//Count: 1  Capacity: 4
+            names.Add("The Flash");
+            names.Add("Green Lantern");
+            names.Add("Spiderman");
+            names.Insert(3, "Cyborg");
+            Info(names);//Count: 5  Capacity: 8? 
+            names.Add("Aquaman");
+            names.Add("Batman");
+            names.Add("Wonder Woman");
+            names.Add("Joker");
+            Info(names);//Count: 9  Capacity: 12  16
+            names.Add("Bane");
+            names.Add("Poison Ivy");
+            names.TrimExcess();
+            Info(names);//Count: 11  Capacity: 20
 
+            Console.WriteLine("\n\n  DC Universe  ");
+            for (int i = 0; i < names.Count; i++)
+            {
+                Console.WriteLine(names[i]);//use the indexer
+            }
+            Console.WriteLine("\n\n  DC Universe  ");
+            foreach (var super in names)
+            {
+                Console.WriteLine(super);
+            }
+
+            Console.WriteLine("\n\n");//escape sequences
 
             string[] best = new string[3] { "Batman", "The Bat", "Bruce" };
 
@@ -151,13 +180,6 @@ namespace Day01
             List<char> letters = new List<char>() { 'B', 'a', 't', 'm', 'a', 'n' };
             letters.Add('!');
 
-            /*
-                CHALLENGE 2:
-
-                    Create a list that stores floats. Call the variable grades.
-                    Add a few grades to the grades list.
-             
-            */
 
 
 
@@ -183,6 +205,11 @@ namespace Day01
 
 
             /*
+                CHALLENGE 2:
+
+                    Create a list that stores floats. Call the variable grades.
+                    Add a few grades to the grades list.
+             
                 CHALLENGE 3:
 
                     loop over the grades vector and print out each grade
@@ -205,6 +232,13 @@ namespace Day01
 
 
             Console.ReadKey(true);
+        }
+
+        private static void Info(List<string> names)
+        {
+            //Count: # of items in the list
+            //Capacity: Length of the internal array
+            Console.WriteLine($"Count: {names.Count}\tCapacity: {names.Capacity}");
         }
 
         private static int AddOne(int localNumber)
