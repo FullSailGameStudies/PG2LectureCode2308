@@ -137,11 +137,7 @@ namespace Day02
 
             List<float> pg2 = null;//1) must be assigned to before calling the method
             GetGrades(ref pg2);//2) use the 'ref' keyword on both ends
-            Console.WriteLine("---PG2---");
-            foreach (float pg2Grade in pg2)
-            {
-                Console.WriteLine($"{pg2Grade,7:N2}");
-            }
+            PrintGrades(pg2);
             Console.ReadKey();
 
 
@@ -213,10 +209,55 @@ namespace Day02
                     Remove all the failing grades (grades < 59.5).
                     Print the grades.
             */
+            for (int i = 0; i < pg2.Count; i++)
+            {
+                if (pg2[i] < 59.5)
+                {
+                    pg2.RemoveAt(i);
+                    i--;
+                    //pg2.Remove(pg2[i]);//less efficient b/c it starts at the beginning of the list
+                }
+            }
+            //OR use a reverse for loop
+            for (int i = pg2.Count - 1; i >= 0; i--)
+            {
+                if (pg2[i] < 59.5)
+                    pg2.RemoveAt(i);
+            }
+            //OR
+            for (int i = 0; i < pg2.Count;)
+            {
+                if (pg2[i] < 59.5)
+                    pg2.RemoveAt(i);
+                else
+                    i++;
+            }
+            PrintGrades(pg2);
+            int j = 0;
+            for(; ;) //while(true)
+            {
+                if (pg2[j] < 59.5)
+                    pg2.RemoveAt(j);
+                else
+                    j++;
+
+                //how to get out of this loop?
+                if (j == pg2.Count) break;
+            }
+            //RemoveAll method. uses lambda statement.
 
 
 
 
+        }
+
+        private static void PrintGrades(List<float> pg2)
+        {
+            Console.WriteLine("---PG2---");
+            foreach (float pg2Grade in pg2)
+            {
+                Console.WriteLine($"{pg2Grade,7:N2}");
+            }
         }
 
         private static bool GetRandomColor(out ConsoleColor outColor)
