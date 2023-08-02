@@ -156,9 +156,25 @@ namespace Day02
 
 
             ConsoleColor randoColor; //don't have to initialize it
-            bool isBlack = GetRandomColor(out randoColor);
-            Console.BackgroundColor = randoColor;
-            Console.WriteLine("Hello Gotham!");
+            //while (true)
+            //{
+            //    int x = randy.Next(Console.WindowWidth);//0->(windowwidth-1)
+            //    int y = randy.Next(Console.WindowHeight-1);
+            //    Console.SetCursorPosition(x, y);
+
+            //    bool isBlack = GetRandomColor(out randoColor);
+            //    Console.BackgroundColor = randoColor;
+            //    Console.Write("Hello Gotham!"); 
+
+            //    if(randy.Next(1000) == 500)
+            //    {
+            //        //Console.Clear();
+            //        string bats = "                            BATMAN!                             ";
+            //        Console.SetCursorPosition(Console.WindowWidth/2 - bats.Length/2,
+            //            Console.WindowHeight/2);
+            //        Console.WriteLine(bats);
+            //    }
+            //}
             Console.ResetColor();
 
             /*
@@ -219,31 +235,32 @@ namespace Day02
                 }
             }
             //OR use a reverse for loop
-            for (int i = pg2.Count - 1; i >= 0; i--)
-            {
-                if (pg2[i] < 59.5)
-                    pg2.RemoveAt(i);
-            }
-            //OR
-            for (int i = 0; i < pg2.Count;)
-            {
-                if (pg2[i] < 59.5)
-                    pg2.RemoveAt(i);
-                else
-                    i++;
-            }
-            PrintGrades(pg2);
-            int j = 0;
-            for(; ;) //while(true)
-            {
-                if (pg2[j] < 59.5)
-                    pg2.RemoveAt(j);
-                else
-                    j++;
+            //for (int i = pg2.Count - 1; i >= 0; i--)
+            //{
+            //    if (pg2[i] < 59.5)
+            //        pg2.RemoveAt(i);
+            //}
+            ////OR
+            //for (int i = 0; i < pg2.Count;)
+            //{
+            //    if (pg2[i] < 59.5)
+            //        pg2.RemoveAt(i);
+            //    else
+            //        i++;
+            //}
+            ////OR
+            //int j = 0;
+            //for(; ;) //while(true)
+            //{
+            //    if (pg2[j] < 59.5)
+            //        pg2.RemoveAt(j);
+            //    else
+            //        j++;
 
-                //how to get out of this loop?
-                if (j == pg2.Count) break;
-            }
+            //    //how to get out of this loop?
+            //    if (j == pg2.Count) break;
+            //}
+            PrintGrades(pg2);
             //RemoveAll method. uses lambda statement.
 
 
