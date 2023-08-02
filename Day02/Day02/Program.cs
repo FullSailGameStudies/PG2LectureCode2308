@@ -60,8 +60,33 @@ namespace Day02
     internal class Program
     {
         static Random randy = new Random();
+
+        static void GetGrades(ref List<float> listOfGrades)
+        {
+            /*
+                CHALLENGE 1:
+
+                    Write a method to create and fill a list of floats with grades.
+                    1) pass it in a list variable by reference
+                    2) initialize the list
+                    3) add 10 grades to the list
+
+            */
+            listOfGrades = new List<float>();
+            for (int i = 0; i < 10; i++)
+            {
+                double grade = randy.NextDouble() * 100;
+                listOfGrades.Add((float)grade);
+            }
+        }
+
         static void Main(string[] args)
         {
+            Console.CursorLeft = 15;
+            Console.WriteLine("Batman");//move to the 0,currentLine+1 next line
+            Console.CursorLeft = 15;
+            Console.Write("Aquaman");
+            float val = (float)randy.NextDouble();
 
             /*   
                 ╔══════════════════════════════╗ 
@@ -72,19 +97,31 @@ namespace Day02
                 NOTE: if the method assigns a new value to the parameter, the variable used when calling the method will change too.
                     This is because the parameter is actually just a new name for the other variable.
             */
+            Console.WriteLine();
             string spider = "Spiderman";
+            Console.WriteLine(spider);
             bool isEven = PostFix(ref spider);
+            Console.WriteLine(spider);
+            Console.ReadKey();
 
             /*
                 CHALLENGE 1:
 
                     Write a method to create and fill a list of floats with grades.
                     1) pass it in a list variable by reference
-                    2) add 10 grades to the list
+                    2) initialize the list and add 10 grades to the list
 
             */
             double grade = randy.NextDouble() * 100;
 
+            List<float> pg2 = null;//1) must be assigned to before calling the method
+            GetGrades(ref pg2);//2) use the 'ref' keyword on both ends
+            Console.WriteLine("---PG2---");
+            foreach (float pg2Grade in pg2)
+            {
+                Console.WriteLine($"{pg2Grade,7:N2}");
+            }
+            Console.ReadKey();
 
 
             /*  
@@ -97,8 +134,12 @@ namespace Day02
                     the method MUST assign a value to the parameter before returning
 
             */
+            string numStr = "5";
+            bool isGood = int.TryParse(numStr, out int number);
+
+
             ConsoleColor randoColor; //don't have to initialize it
-            GetRandomColor(out randoColor);
+            bool isBlack = GetRandomColor(out randoColor);
             Console.BackgroundColor = randoColor;
             Console.WriteLine("Hello Gotham!");
 
@@ -149,11 +190,11 @@ namespace Day02
 
         }
 
-        private static void GetRandomColor(out ConsoleColor outColor)
+        private static bool GetRandomColor(out ConsoleColor outColor)
         {
             //the method MUST initialize the outColor parameter
             outColor = (ConsoleColor)randy.Next(16);
-
+            return outColor == ConsoleColor.Black;
         }
 
         static bool PostFix(ref string hero) //hero is now an alias to the variable used when calling PostFix. In this case, hero is an alias to the spider variable.
