@@ -79,6 +79,19 @@ namespace Day02
                 listOfGrades.Add((float)grade);
             }
         }
+        static void GetStats(List<float> listOfGrades, out float min, out float max, out float avg)
+        {
+            min = listOfGrades[0];
+            max = listOfGrades[0];
+            avg = 0;
+            for (int i = 0; i < listOfGrades.Count; i++)
+            {
+                if(min > listOfGrades[i]) min = listOfGrades[i];
+                if(max < listOfGrades[i]) max = listOfGrades[i];
+                avg += listOfGrades[i];
+            }
+            avg /= listOfGrades.Count;
+        }
 
         static void Main(string[] args)
         {
@@ -155,7 +168,8 @@ namespace Day02
              
             */
 
-
+            GetStats(pg2, out float min, out float max, out float average);
+            Console.WriteLine($"Min: {min}\nMax: {max}\nAverage: {average}");
 
 
 
