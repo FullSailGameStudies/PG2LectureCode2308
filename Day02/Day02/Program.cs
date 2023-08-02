@@ -92,6 +92,14 @@ namespace Day02
             }
             avg /= listOfGrades.Count;
         }
+        //tuple
+        static (float,float,float) GetStats(List<float> listOfGrades)
+        {
+            float min = listOfGrades.Min();
+            float max = listOfGrades.Max();
+            float avg = listOfGrades.Average();
+            return (min,max,avg);
+        }
 
         static void Main(string[] args)
         {
@@ -155,7 +163,7 @@ namespace Day02
             bool isBlack = GetRandomColor(out randoColor);
             Console.BackgroundColor = randoColor;
             Console.WriteLine("Hello Gotham!");
-
+            Console.ResetColor();
 
             /*
                 CHALLENGE 2:
@@ -168,9 +176,10 @@ namespace Day02
              
             */
 
-            GetStats(pg2, out float min, out float max, out float average);
-            Console.WriteLine($"Min: {min}\nMax: {max}\nAverage: {average}");
+            //GetStats(pg2, out float min, out float max, out float average);
 
+            (float min, float max, float average) = GetStats(pg2);
+            Console.WriteLine($"Min: {min}\nMax: {max}\nAverage: {average}");
 
 
 
@@ -186,8 +195,14 @@ namespace Day02
                 2) RemoveAt(index). will remove the item from the list at the index
 
             */
-            List<string> dc = new() { "Batman", "Wonder Woman", "Aquaman", "Superman", "Aquaman" };
+            List<string> dc = new() { "Batman", "Wonder Woman", "Aquaman", "Aquaman", "Superman", "Aquaman" };
+            Console.WriteLine("  BEFORE remove  ");
+            foreach (string name in dc) Console.WriteLine(name);
+
             bool found = dc.Remove("Aquaman");
+
+            Console.WriteLine("  AFTER remove  ");
+            foreach (string name in dc) Console.WriteLine(name);
 
             dc.RemoveAt(dc.Count - 1);//removes the last item
 
