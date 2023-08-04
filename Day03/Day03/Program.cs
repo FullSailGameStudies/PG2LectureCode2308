@@ -155,7 +155,7 @@ namespace Day03
             {
                 ColorWrite("na ", (ConsoleColor)rando.Next(16), (ConsoleColor)rando.Next(16));
             }
-            ColorWrite("Batman!", ConsoleColor.DarkCyan, ConsoleColor.Black);
+            ColorWrite("Batman!", ConsoleColor.DarkCyan, ConsoleColor.Black, true);
         }
     }
 }
