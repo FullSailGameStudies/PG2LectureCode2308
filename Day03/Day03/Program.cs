@@ -79,20 +79,24 @@ namespace Day03
             string postfile = PostFix(file); //if you don't pass a value, the default value will be used for the optional parameter
             postfile = PostFix(file, 5); //if a value is passed, it will be used for the optional parameter
 
+            //PostFix(postFixNumber: 5, fileName: "");
 
 
             /*
                 CHALLENGE 1:
 
-                    Write a method called batTheme.
-                    Add an optional parameter to determine how many "na" are printed. The default value should be 13.
+                    Write a method called BatTheme.
+                    Add an optional parameter to determine how many "na" are printed. 
+                        The default value should be 13.
 
-                    If the calling code does not pass a value for the parameter, print "na na na na na na na na na na na na na Batman".
+                    If the calling code does not pass a value for the parameter, 
+                        print "na na na na na na na na na na na na na Batman".
                     If a value is passed, print the number of "na" equal to the value.
                     EX: if 6 is passed, print "na na na na na na Batman"
 
             */
-
+            BatTheme();
+            BatTheme(25);
 
 
 
@@ -106,11 +110,45 @@ namespace Day03
              
             */
 
+
+            int[] nums = new int[] { 5, 4, 3, 2, 1 };
+            List<int> numList = new();
+            foreach(int num in nums)
+            {
+                numList.Add(num);
+            }
+            Print(numList);
+
+            //reference type (stores the memory address to the data)
+            //value type
+            List<int> cloneNumList = numList.ToList();//clone the list
+            Print(numList.ToList());
         }
 
         static string PostFix(string fileName, int postFixNumber = 1) //postFixNumber is optional
         {
             return fileName + postFixNumber;
+        }
+
+        static void Print(List<int> numbers)
+        {
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+
+        static void BatTheme(int numberOfNas = 13)
+        {
+            Random rando = new Random();
+            for (int i = 0; i < numberOfNas; i++)
+            {
+                Console.ForegroundColor = (ConsoleColor)rando.Next(16);
+                Console.Write("na ");
+            }
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Batman!");
+            Console.ResetColor();
         }
     }
 }
