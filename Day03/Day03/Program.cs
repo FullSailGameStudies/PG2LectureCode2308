@@ -125,6 +125,16 @@ namespace Day03
             Print(numList.ToList());
         }
 
+        static void ColorWrite(string message, ConsoleColor fore = ConsoleColor.Gray, ConsoleColor back = ConsoleColor.Black, bool addNewLine = false)
+        {
+            Console.ForegroundColor = fore;
+            Console.BackgroundColor = back;
+            if (addNewLine) Console.WriteLine(message);
+            else Console.Write(message);
+            Console.ResetColor();
+
+        }
+
         static string PostFix(string fileName, int postFixNumber = 1) //postFixNumber is optional
         {
             return fileName + postFixNumber;
@@ -143,12 +153,9 @@ namespace Day03
             Random rando = new Random();
             for (int i = 0; i < numberOfNas; i++)
             {
-                Console.ForegroundColor = (ConsoleColor)rando.Next(16);
-                Console.Write("na ");
+                ColorWrite("na ", (ConsoleColor)rando.Next(16), (ConsoleColor)rando.Next(16));
             }
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Batman!");
-            Console.ResetColor();
+            ColorWrite("Batman!", ConsoleColor.DarkCyan, ConsoleColor.Black);
         }
     }
 }
