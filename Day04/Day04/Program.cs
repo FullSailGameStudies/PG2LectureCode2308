@@ -7,8 +7,48 @@ namespace Day04
 {
     internal class Program
     {
+        static void BubbleSort(List<int> unsorted)
+        {
+            int n = unsorted.Count;
+            bool swapped;
+            do
+            {
+                swapped = false;
+                for (int i = 1; i <= n-1; i++)
+                {
+                    if (unsorted[i-1] > unsorted[i])
+                    {
+                        //swap(A, i - 1, i);
+
+                        //int temp = unsorted[i - 1];
+                        //unsorted[i - 1] = unsorted[i];
+                        //unsorted[i] = temp;
+                        (unsorted[i], unsorted[i-1]) = (unsorted[i-1], unsorted[i]);
+
+                        swapped = true;
+                    }
+                }
+                //n = n - 1;
+                n--;
+            } 
+            while (swapped);
+        }
+
+        private static void PrintMe(List<int> nums)
+        {
+            foreach (int i in nums)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
+            List<int> nums = new List<int>() { 5, 13, 0, 1, 7 };
+            PrintMe(nums);
+            BubbleSort(nums);
+            PrintMe(nums);
+            Console.ReadKey();
 
             /*
                 ╔═══════╗ 
@@ -86,7 +126,6 @@ namespace Day04
 
 
         }
-
 
         static void RecursiveLoop(int N)
         {
