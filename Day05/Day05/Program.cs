@@ -88,12 +88,14 @@ namespace Day04
                 { "Eggs", 1.99F },
                 { "Toast", 0.99F }
             };
-            menu.Add("French Toast", 7.99F);
+            menu.Add("French Toast", 10.99F);
             menu.Add("Pancakes", 9.99F);
+            menu.Add("Pancakes", 5.99F);//will THROW AN EXCEPTION!
 
             // [key] = value
             menu["Coffee"] = 2.99F;
             menu["Bacon"] = 5.99F;
+            menu["Bacon"] = 7.99F;//will NOT throw an exception. will OVERWRITE the value.
             
 
 
@@ -127,9 +129,33 @@ namespace Day04
             */
 
 
+            //Keys MUST BE UNIQUE
+            //Values do NOT have to be unique
 
-            List<string> students = new() { "Littal", "Maxwell", "Joshua", "Beomjong", "Xander", "Hunter", "Max", "Kevin", "Timothy", "Oliver", "William", "Chanaya" };
+            List<string> students = new() { "Littal", "Maxwell", "JoshuaGarcia", "Beomjong", "Xander", "Hunter", "Max", 
+                "Kevin", "Timothy", "Oliver", "William", "Chanaya",
+                "Albert", "Alex", "Geoffery", "JAMES", "Ja'Spring", "JoshuaGilstrap", "Mitchell", "Garrett"
+            };
+            Dictionary<string, double> grades = new();
+            foreach (var name in students)
+            {
+                //Program Defensively
+                //try-catches are expensive
+                try
+                {
+                    grades.Add(name, randy.NextDouble() * 100);
+                }
+                catch(ArgumentException argument)
+                {
 
+                }
+                catch(Exception ex) //general catch-all exception
+                {
+                }
+
+                //OR
+                //grades[name] = randy.NextDouble() * 100; 
+            }
 
 
             /*   
