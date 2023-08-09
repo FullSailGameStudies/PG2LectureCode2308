@@ -50,7 +50,7 @@ namespace Day04
                         4) if reach the end of the list, return -1 which means not found
                     
             */
-            List<int> nums = new() { 5, 13, 7, 0, 420 };//Count = 5. WORST-CASE: O(N) where N = 5.
+            List<int> nums = new List<int>() { 5, 13, 7, 0, 420 };//Count = 5. WORST-CASE: O(N) where N = 5.
             int intToFind = 420;
             int foundIndex = LinearSearch(nums, intToFind);
             if(foundIndex >= 0)
@@ -59,7 +59,10 @@ namespace Day04
                 Console.WriteLine($"{intToFind} was not found.");
             Console.ReadKey();
 
-
+            int i1, i2, i3, i4, i5;
+            Random randy = new Random();
+            int count = randy.Next(10);
+            List<int> numbers = new(count);
 
             /*   
                 ╔══════════════════════════╗ 
@@ -76,6 +79,22 @@ namespace Day04
 
             Dictionary<Weapon, int> backpack = new Dictionary<Weapon, int>();//will store the counts of each kind of weapon
 
+            //type of the Keys
+            //type of the Values
+            Dictionary<string, float> menu = new Dictionary<string, float>()
+            {
+                //Key-Value pair
+                // { key, value }
+                { "Eggs", 1.99F },
+                { "Toast", 0.99F }
+            };
+            menu.Add("French Toast", 7.99F);
+            menu.Add("Pancakes", 9.99F);
+
+            // [key] = value
+            menu["Coffee"] = 2.99F;
+            menu["Bacon"] = 5.99F;
+            
 
 
 
@@ -86,7 +105,7 @@ namespace Day04
 
                 [  Adding items to a Dictionary  ]
 
-                There are 3 ways to add items to a Dictionaruy:
+                There are 3 ways to add items to a Dictionary:
                 1) on the initializer. 
                 2) using the Add method. 
                 3) using [key] = value
