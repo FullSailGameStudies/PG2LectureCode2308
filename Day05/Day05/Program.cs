@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading;
 
 namespace Day04
@@ -90,7 +92,7 @@ namespace Day04
             };
             menu.Add("French Toast", 10.99F);
             menu.Add("Pancakes", 9.99F);
-            menu.Add("Pancakes", 5.99F);//will THROW AN EXCEPTION!
+            //menu.Add("Pancakes", 5.99F);//will THROW AN EXCEPTION!
 
             // [key] = value
             menu["Coffee"] = 2.99F;
@@ -172,6 +174,23 @@ namespace Day04
                 Console.WriteLine($"You have {weaponCount.Value} {weaponCount.Key}");
 
 
+            Console.OutputEncoding = Encoding.Unicode;
+            //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+            //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+            Console.WriteLine("-*-*-Bistro PG2-*-*-");
+            foreach (KeyValuePair<string, float> menuItem in menu)
+            {
+                string itemName = menuItem.Key;
+                float itemPrice = menuItem.Value;
+                Console.WriteLine($"{itemPrice,8:C2} {itemName}");
+            }
+
+            //for (int i = 0; i < menu.Count; i++)
+            //{
+            //    string itemName = menu.Keys.ElementAt(i);
+            //    float itemPrice = menu.Values.ElementAt(i);
+            //}
+
 
             /*
                 CHALLENGE 4:
@@ -179,6 +198,7 @@ namespace Day04
                     Loop over your grades dictionary and print each student name and grade.
              
             */
+            PrintGrades(grades);
 
 
 
@@ -195,8 +215,8 @@ namespace Day04
                 1) ContainsKey(key)
                 2) TryGetValue(key, out value)
                
-            */            
-            if(backpack.ContainsKey(Weapon.Axe))
+            */
+            if (backpack.ContainsKey(Weapon.Axe))
                 Console.WriteLine($"{Weapon.Axe} count: {backpack[Weapon.Axe]}");
 
             if(backpack.TryGetValue(Weapon.Spear, out int spearCount))
@@ -239,6 +259,24 @@ namespace Day04
                     Pick any student and curve the grade (add 5) that is stored in the grades dictionary
              
             */
+        }
+
+        private static void PrintGrades(Dictionary<string, double> grades)
+        {
+            Console.WriteLine("    PG2 2308    ");
+            foreach (var student in grades)
+            {
+                string name = student.Key;
+                double grade = student.Value;
+                Console.ForegroundColor = (grade < 59.5) ? ConsoleColor.Red :
+                                          (grade < 69.5) ? ConsoleColor.DarkYellow :
+                                          (grade < 79.5) ? ConsoleColor.Yellow :
+                                          (grade < 89.5) ? ConsoleColor.Blue :
+                                                           ConsoleColor.Green;
+                Console.Write($"{grade,7:N2} ");//N2 is a number w/ 2 decimal places
+                Console.ResetColor();
+                Console.WriteLine(name);
+            }
         }
     }
 }
