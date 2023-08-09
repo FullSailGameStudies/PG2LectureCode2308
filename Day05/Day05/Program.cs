@@ -11,6 +11,23 @@ namespace Day04
         {
             Sword, Axe, Spear, Mace
         }
+
+        //IndexOf kind of method
+        //  returns an index of where the item is found
+        //  returns -1 if the item is NOT found
+        static int LinearSearch(List<int> searchList, int searchItem)
+        {
+            int foundIndex = -1;
+            for (int i = 0; i < searchList.Count; i++)
+            {
+                if (searchList[i] == searchItem)
+                {
+                    foundIndex = i;
+                    break;
+                }
+            }
+            return foundIndex;
+        }
         static void Main(string[] args)
         {
             /*
@@ -33,6 +50,14 @@ namespace Day04
                         4) if reach the end of the list, return -1 which means not found
                     
             */
+            List<int> nums = new() { 5, 13, 7, 0, 420 };//Count = 5. WORST-CASE: O(N) where N = 5.
+            int intToFind = 420;
+            int foundIndex = LinearSearch(nums, intToFind);
+            if(foundIndex >= 0)
+                Console.WriteLine($"{intToFind} was found at index {foundIndex}.");
+            else
+                Console.WriteLine($"{intToFind} was not found.");
+            Console.ReadKey();
 
 
 
@@ -48,15 +73,8 @@ namespace Day04
                 When you want to create a Dictionary variable, replace TKey with whatever type of data you want to use for the keys and
                 replace TValue with the type you want to use for the values.
             */
-           
+
             Dictionary<Weapon, int> backpack = new Dictionary<Weapon, int>();//will store the counts of each kind of weapon
-
-            /*
-                CHALLENGE 2:
-
-                    Create a Dictionary that stores names (string) and grades. Call the variable grades.
-             
-            */
 
 
 
@@ -80,15 +98,18 @@ namespace Day04
             backpack.Add(Weapon.Axe, 2);
             backpack[Weapon.Spear] = 1;
 
-            /*
-                CHALLENGE 3:
 
-                    Add students and grades to your dictionary that you created in CHALLENGE 2.
+            /*
+                CHALLENGE 2:
+
+                    Create a Dictionary that stores names (string) and grades. Call the variable grades.
+                    Add students and grades to your dictionary 
              
             */
 
 
 
+            List<string> students = new() { "Littal", "Maxwell", "Joshua", "Beomjong", "Xander", "Hunter", "Max", "Kevin", "Timothy", "Oliver", "William", "Chanaya" };
 
 
 
