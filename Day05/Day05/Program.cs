@@ -245,6 +245,20 @@ namespace Day04
                     else print out a message that the student was not found
              
             */
+            do
+            {
+                Console.Write("Student to find: ");
+                string student = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(student)) break;
+
+                if(grades.TryGetValue(student, out double studentGrade))
+                {
+                    Console.WriteLine($"{student} has a grade of {studentGrade}.");
+                }
+                else
+                    Console.WriteLine($"{student} is not in PG2 this month.");
+                PrintGrades(grades);
+            } while (true);
 
 
 
@@ -259,13 +273,14 @@ namespace Day04
 
                 [  Updating a value for a key in a Dictionary  ]
 
-                To update an exisiting value in the dictionary, use the [ ]
+                To update an existing value in the dictionary, use the [ ]
                 
                
             */
             backpack[Weapon.Mace] = 0; //sell all maces
 
-
+            menu["Pancakes"] = 12.99F;//overwrite
+            menu["Mac-n-cheese"] = 8.99F;//add
 
             /*
                 CHALLENGE 6:
@@ -273,11 +288,26 @@ namespace Day04
                     Pick any student and curve the grade (add 5) that is stored in the grades dictionary
              
             */
+            do
+            {
+                Console.Write("Student to curve: ");
+                string student = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(student)) break;
+
+                if (grades.TryGetValue(student, out double studentGrade))
+                {
+                    grades[student] = Math.Min(100, studentGrade + 5);//update the value for the key
+                    Console.WriteLine($"{student} was {studentGrade:N2}. Now the grade is {grades[student]:N2}.");
+                }
+                else
+                    Console.WriteLine($"{student} is not in PG2 this month.");
+                PrintGrades(grades);
+            } while (true);
         }
 
         private static void PrintGrades(Dictionary<string, double> grades)
         {
-            Console.WriteLine("    PG2 2308    ");
+            Console.WriteLine("\n\n    PG2 2308    ");
             foreach (KeyValuePair<string,double> student in grades)
             {
                 string name = student.Key;
