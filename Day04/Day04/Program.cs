@@ -7,47 +7,81 @@ namespace Day04
 {
     internal class Program
     {
-        static void BubbleSort(List<int> unsorted)
+        static void BubbleSort(List<string> unsorted)
         {
             int n = unsorted.Count;
             bool swapped;
             do
             {
                 swapped = false;
-                for (int i = 1; i <= n-1; i++)
+                for (int i = 1; i <= n - 1; i++)
                 {
-                    if (unsorted[i-1] > unsorted[i])
+                    //if (unsorted[i-1] > unsorted[i])
+                    if (unsorted[i - 1].CompareTo(unsorted[i]) > 0)
                     {
                         //swap(A, i - 1, i);
 
                         //int temp = unsorted[i - 1];
                         //unsorted[i - 1] = unsorted[i];
                         //unsorted[i] = temp;
-                        (unsorted[i], unsorted[i-1]) = (unsorted[i-1], unsorted[i]);
+                        (unsorted[i], unsorted[i - 1]) = (unsorted[i - 1], unsorted[i]);
 
                         swapped = true;
                     }
                 }
                 //n = n - 1;
                 n--;
-            } 
+            }
             while (swapped);
         }
 
-        private static void PrintMe(List<int> nums)
+        private static void PrintMe<T>(List<T> nums)
         {
-            foreach (int i in nums)
+            for (int i = 0; i < nums.Count; i++)
             {
-                Console.Write($"{i} ");
+                Console.Write($"{nums[i]} ");
             }
             Console.WriteLine();
         }
+
+        static void Method(int N)
+        {
+            //if (N >= 10) return; //stop looping
+
+            //exit condition.
+            //ALL REcursive methods need an exit condition
+            if (N < 10)
+            {
+                N++;
+                Method(N);//recursive call
+            }
+        }
+        static long Factorial(int N)
+        {
+            if (N > 1)
+            {
+                return N * Factorial(N - 1);
+            }
+            return 1;
+        }
         static void Main(string[] args)
         {
-            List<int> nums = new List<int>() { 5, 13, 0, 1, 7 };
-            PrintMe(nums);
-            BubbleSort(nums);
-            PrintMe(nums);
+            Method(0);
+            string s1 = "Batman", s2 = "Aquaman";
+            //string's CompareTo method
+            int compareResult = s1.CompareTo(s2);
+            //  -1  LESS THAN
+            //   0  EQUAL TO
+            //   1  GREATER THAN
+            if (compareResult == 0) Console.WriteLine($"{s1} EQUALS {s2}");
+            else if (compareResult < 0) Console.WriteLine($"{s1} LESS THAN {s2}");
+            else if (compareResult > 0) Console.WriteLine($"{s1} GREATER THAN {s2}");
+            Console.ReadKey();
+
+            List<string> supers = new List<string>() { "Wonder Woman", "Batman", "Superman", "Flash", "Aquaman", "Joker" };
+            PrintMe(supers);
+            BubbleSort(supers);
+            PrintMe(supers);
             Console.ReadKey();
 
             /*
@@ -118,6 +152,7 @@ namespace Day04
             //
             //call Bats here
             //
+            Bats(0);
             Console.WriteLine();
             List<int> b = new() { 66, 65, 84, 77, 65, 78, 33, 33 };
             foreach (var item in b) Console.Write((char)item);
@@ -125,6 +160,18 @@ namespace Day04
 
 
 
+        }
+
+        static void Bats(int i)
+        {
+            if (i < 100)
+            {
+                //for (int i = 0; i < 100; i++)
+                Console.Write((char)78);//N
+                Console.Write((char)65);//A
+                Console.Write(' ');
+                Bats(++i);
+            }
         }
 
         static void RecursiveLoop(int N)
