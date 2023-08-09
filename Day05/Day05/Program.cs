@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -223,10 +224,23 @@ namespace Day04
                 Console.WriteLine($"{Weapon.Spear} count: {spearCount}");
 
 
+            string item = "Chicken Nuggets";
+            if (menu.ContainsKey(item)) //returns true/false
+            {
+                float price = menu[item];//get the value for the key
+                Console.WriteLine($"{item} costs {price:C2}");
+            }
+            //OR...
+            if(menu.TryGetValue(item, out float nuggetPrice)) //returns true/false AND the value if true
+            {
+                Console.WriteLine($"{item} costs {nuggetPrice:C2}");
+            }
+
             /*
                 CHALLENGE 5:
 
-                    Using either of the 2 ways to check for a key, look for a specific student in the dictionary. 
+                    Using either of the 2 ways to check for a key, 
+                        look for a specific student in the dictionary. 
                     If the student is found, print out the student's grade
                     else print out a message that the student was not found
              
@@ -264,7 +278,7 @@ namespace Day04
         private static void PrintGrades(Dictionary<string, double> grades)
         {
             Console.WriteLine("    PG2 2308    ");
-            foreach (var student in grades)
+            foreach (KeyValuePair<string,double> student in grades)
             {
                 string name = student.Key;
                 double grade = student.Value;
@@ -273,7 +287,7 @@ namespace Day04
                                           (grade < 79.5) ? ConsoleColor.Yellow :
                                           (grade < 89.5) ? ConsoleColor.Blue :
                                                            ConsoleColor.Green;
-                Console.Write($"{grade,7:N2} ");//N2 is a number w/ 2 decimal places
+                Console.Write($"{grade,7:N2} ");//N2 is a number w/ 2 decimal places formatting specifier
                 Console.ResetColor();
                 Console.WriteLine(name);
             }
