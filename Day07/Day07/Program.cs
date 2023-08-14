@@ -162,11 +162,17 @@ namespace Day07
                 }
                             
                 CHALLENGE 5:
-                    write an ItsMyBirthday method. increment age and print out a happy message.
+                    write an ItsMyBirthday method. 
+                    increment age and print out a happy message.
             */
 
 
+            myRide.Refuel(10);//Car this = myRide
 
+            Car superCar = new Car(1970, "Chevy", "Pinto");
+            superCar.Refuel(5);//Car this = superCar
+
+            Car.CarReport();//there is no 'this' parameter
 
 
 

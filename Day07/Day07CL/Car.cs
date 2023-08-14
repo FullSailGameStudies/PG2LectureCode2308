@@ -8,13 +8,22 @@ namespace Day07CL
 {
     public class Car
     {
+        #region Fields
         // FIELDS
         //  _ helps us see that its a field and NOT a local variable
         private string _make;//class-level variable
-        //  make_
-        //  m_sMake  m_Make  mMake _make
+                             //  make_
+                             //  m_sMake  m_Make  mMake _make 
+
+
+        #endregion
 
         // PROPERTIES
+
+        public int FuelLevel { get; private set; } = 0;
+
+        public static int NumberOfCarsMade { get; set; } = 0;
+
         // a FULL property (you create a backing field -- ex: _make)
         public string Make
         {
@@ -46,7 +55,26 @@ namespace Day07CL
             Make = make;
             Model = model;
 
+            //non-static methods can access static data b/c static data is shared
+            NumberOfCarsMade++; 
+
             //model = Model;//backwards and WRONG!
         }
+
+        #region Methods
+        //static methods do NOT have a 'this' parameter
+        public static void CarReport()
+        {
+            Console.WriteLine($"We have made {NumberOfCarsMade} this year!");
+
+            //static methods can ONLY access static data.
+            //non-static data is inaccessible.
+            //Console.WriteLine($"My car is a {Year} {Make} {Model}");
+        }
+        public void Refuel(int fuelAmount) //hidden parameter! Car this
+        {
+            FuelLevel = Math.Min(18, FuelLevel + fuelAmount);
+        }
+        #endregion
     }
 }
