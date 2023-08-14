@@ -26,7 +26,7 @@ namespace Day07CL
             // set (mutator)
             //same as...
             //  public void SetMake(string value) { _make = value; }
-            set
+            private set
             {
                 if (!string.IsNullOrWhiteSpace(value)) //protect the field!
                     _make = value;
@@ -35,5 +35,18 @@ namespace Day07CL
 
         // an AUTO property (the compiler provides the backing field AND the get/set code)
         public string Model { get; private set; }
+
+        public int Year { get; private set; }
+
+        // CONSTRUCTORS (ctor)
+        public Car(int year, string make, string model) 
+        {
+            //property/field = parameter;
+            Year = year;
+            Make = make;
+            Model = model;
+
+            //model = Model;//backwards and WRONG!
+        }
     }
 }

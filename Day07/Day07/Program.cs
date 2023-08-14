@@ -106,8 +106,9 @@ namespace Day07
             */
             Person bruce;// null
             bruce = new Person(); //create a Person instance
-
-
+            bruce.Age = 35; //call the set on the Age property
+            //bruce.Name = "Arthur Curry";
+            Console.WriteLine($"Hello. My name is {bruce.Name} and I am {bruce.Age} years old.");//calls the 'get' on the properties
 
 
 
@@ -121,7 +122,7 @@ namespace Day07
                 1) cannot have any return type, not even void
                 2) must have the same name as the class
                 
-                HINT: use the ctor code snippet to provide a default contructor
+                HINT: use the ctor code snippet to provide a default constructor
 
                 EXAMPLE:
                 public GameObject(int x, int y, ConsoleColor color)
@@ -137,7 +138,8 @@ namespace Day07
                     Add a constructor to the Person class to initialize Age and Name
             */
 
-
+            Car myRide = new Car(1967, "Ford", "GT");
+            Console.WriteLine($"My car is a {myRide.Year} {myRide.Make} {myRide.Model}");
 
 
 
