@@ -174,7 +174,7 @@ namespace Day07
 
             Car.CarReport();//there is no 'this' parameter
 
-
+            alfred.ItsMyBirthday();
 
             /*                              
                 CHALLENGE 6:

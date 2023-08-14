@@ -37,5 +37,13 @@ namespace Day07CL
             Age = age;
         }
         #endregion
+
+        #region methods
+        public void ItsMyBirthday()
+        {
+            Age++;
+            Console.WriteLine($"Yeah! I'm {Age} years old today. Let's have some cake!");
+        }
+        #endregion
     }
 }
