@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Day07CL;
 
 namespace Day07
 {
@@ -103,6 +104,8 @@ namespace Day07
                     Add an Age property provide access to the _age field
                     Add an auto-property for Name
             */
+            Person bruce;// null
+            bruce = new Person(); //create a Person instance
 
 
 
