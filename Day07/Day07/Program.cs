@@ -97,6 +97,8 @@ namespace Day07
                 public ConsoleColor Color { get; private set; } = ConsoleColor.DarkCyan;
 
             
+                CHALLENGE 2:
+                    Add an age field to the Person class
                 CHALLENGE 3:
                     Add an Age property provide access to the _age field
                     Add an auto-property for Name
