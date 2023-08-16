@@ -147,6 +147,17 @@ namespace Day08
 
 
 
+            Console.WriteLine("\nWeapons in Dora's Backpack: ");
+            foreach (Weapon weapon in dorasBackpack)
+            {
+                weapon.ShowMe();
+                //downcasting
+                if(weapon is Pistol pewpew)
+                    Console.WriteLine($"\t{pewpew.Rounds} of {pewpew.MagCapacity}");
+                else if(weapon is Knife stabber)
+                    Console.WriteLine($"\tIs serrated knife? {stabber.Serrated}");
+            }
+
 
 
 
