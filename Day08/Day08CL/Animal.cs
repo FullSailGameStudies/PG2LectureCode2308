@@ -14,7 +14,10 @@ namespace Day08CL
         }
         public string Name { get; set; }
 
-        public void Move() { }
+        public virtual void Move() 
+        {
+            Console.WriteLine("Time to move somewhere...");
+        }
         public void Reproduce() { }
     }
 
@@ -29,6 +32,19 @@ namespace Day08CL
             Console.WriteLine($"I'm a bird ({Name}).");
         }
         public bool CanFly { get; set; } //a has-a relationship. A Bird has-a property CanFly
+
+        public override void Move()
+        {
+            //EXTEND the base version (add-on to it)
+            //call the base method
+            base.Move();//if you don't call the base method, you are FULLY overriding
+
+
+            if (CanFly)
+                Console.WriteLine("flap flap flap");
+            else
+                Console.WriteLine("run run run");
+        }
     }
 
 
@@ -40,6 +56,12 @@ namespace Day08CL
         public Mammal(string name, bool hasHair) : base(name)
         {
             HasHair = hasHair;//assign the parameter to the property
+        }
+
+        public override void Move()
+        {
+            base.Move();
+            Console.WriteLine("run run run");
         }
     }
 }

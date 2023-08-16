@@ -27,7 +27,7 @@ namespace Day08
 
             //Animal animal = new Animal();//animal is abstract. cannot create an instance of it.
 
-            Bird mockingJay = new Bird("Emu", false);//calling the Bird ctor
+            Bird mockingJay = new Bird("Turkey", true);//calling the Bird ctor
 
             /*
                 CHALLENGE 1:
@@ -152,10 +152,10 @@ namespace Day08
             {
                 weapon.ShowMe();
                 //downcasting
-                if(weapon is Pistol pewpew)
-                    Console.WriteLine($"\t{pewpew.Rounds} of {pewpew.MagCapacity}");
-                else if(weapon is Knife stabber)
-                    Console.WriteLine($"\tIs serrated knife? {stabber.Serrated}");
+                //if(weapon is Pistol pewpew)
+                //    Console.WriteLine($"\t{pewpew.Rounds} of {pewpew.MagCapacity}");
+                //else if(weapon is Knife stabber)
+                //    Console.WriteLine($"\tIs serrated knife? {stabber.Serrated}");
             }
 
 
@@ -186,6 +186,12 @@ namespace Day08
                     In Pistol's version, call the base version and print out the rounds and magCapacity
                     Fix the loop to remove the if-elseif.
             */
+
+            animal.Move();
+            mockingJay.Move();
+
+            animal = mockingJay;
+            animal.Move();//???
         }
     }
 }
