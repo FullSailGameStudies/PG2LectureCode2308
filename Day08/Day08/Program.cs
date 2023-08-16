@@ -1,4 +1,6 @@
-﻿namespace Day08
+﻿using Day08CL;
+
+namespace Day08
 {
     /*                    DERIVING CLASSESS          
                                                                
@@ -22,6 +24,10 @@
     {
         static void Main(string[] args)
         {
+
+            //Animal animal = new Animal();//animal is abstract. cannot create an instance of it.
+
+            Bird mockingJay = new Bird("Emu", false);//calling the Bird ctor
 
             /*
                 CHALLENGE 1:
