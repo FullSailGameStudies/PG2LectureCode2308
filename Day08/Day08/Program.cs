@@ -59,6 +59,11 @@ namespace Day08
                     Create a List of Weapon. 
                     Create several Pistols and Knives and add them to the list of weapons.
             */
+            List<Weapon> dorasBackpack = new List<Weapon>();
+            dorasBackpack.Add(new Pistol(40, 100, 9, 9));//upcasting
+
+            Knife knife = new Knife(3, 25, true);
+            dorasBackpack.Add(knife);//upcasting
 
 
 
