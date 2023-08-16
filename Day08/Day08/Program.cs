@@ -65,6 +65,9 @@ namespace Day08
             Knife knife = new Knife(3, 25, true);
             dorasBackpack.Add(knife);//upcasting
 
+            object weaponObj = knife;
+
+            //Bird flappy = (Bird)knife;
 
 
             int num = 5;
@@ -117,7 +120,30 @@ namespace Day08
             */
 
 
+            //DOWNCASTING:
+            //  from a BASE type (Animal) to a DERIVED type (Bird)
+            //  NOT SAFE!!!!!
 
+            //How-to Downcast:
+            //1) Explicit w/ try-catch
+            try
+            {
+                Bird flappyBird = (Bird)animal;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("The object is not a Bird.");
+            }
+
+            //2) use the 'as' keyword to cast w/ a null check
+                //if it fails, will assign NULL to the variable
+            Bird flappy2 = animal as Bird;
+            if(flappy2 != null) //if true, you can use it. the cast succeeded.
+                Console.WriteLine($"This bird can fly? {flappy2.CanFly}");
+
+            //3) use the 'is' keyword in an if block  (pattern matching)
+            if(animal is Bird flappy3)
+                Console.WriteLine($"This bird can fly? {flappy3.CanFly}");
 
 
 
