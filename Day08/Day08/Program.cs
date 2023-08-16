@@ -56,12 +56,23 @@ namespace Day08
 
 
                 CHALLENGE 2:
-                    Create a List of Weapon. Create several Pistols and add them to the list of weapons.
+                    Create a List of Weapon. 
+                    Create several Pistols and Knives and add them to the list of weapons.
             */
 
 
 
+            int num = 5;
+            long bigNum = num;//casting? implicit cast
+            num = (int)bigNum;//casting? explicit cast
 
+            Mammal hooman = new Mammal("Human", true);
+
+            //UPCASTING:
+            //  going from a DERIVED type (Mammal) to a BASE type (Animal)
+            Animal animal = hooman; //ALWAYS SAFE
+
+            Console.WriteLine($"This animal has hair? {hooman.HasHair}");
 
 
 
