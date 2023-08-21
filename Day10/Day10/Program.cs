@@ -257,6 +257,26 @@ namespace Day10
                 Challenge 4: deserialize the dc.json file into a list of superheroes
 
             */
+            if (File.Exists(jsonHeroFilePath))
+            {
+                string heroListText = File.ReadAllText(jsonHeroFilePath);
+                try
+                {
+                    List<Superhero>? heroPeople = JsonConvert.DeserializeObject<List<Superhero>>(heroListText);
+                    if (heroPeople != null)
+                    {
+                        Console.WriteLine("---Deserializing Json List---");
+                        foreach (var hero in heroPeople)
+                        {
+                            Console.WriteLine($"Hello citizen. I am {hero.Name} (aka {hero.Secret}). I can do {hero.Power}!");
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("The file was not the correct format.");
+                }
+            }
         }
     }
 }
