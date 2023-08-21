@@ -111,6 +111,25 @@
                 Console.WriteLine($"ERROR: {directories} does not exists.");
 
 
+            if (File.Exists(filePath))
+            {
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line;
+                    while((line = sr.ReadLine()) != null)
+                    {
+                        string[] lineData = line.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+
+                        string text = lineData[0];
+                        int num = int.Parse(lineData[1]);
+                        int favHoliday = int.Parse(lineData[2]);
+                        double grade = double.Parse(lineData[3]);
+                        bool gonnaPass = bool.Parse(lineData[4]);
+
+                    }
+                }
+            }
+
 
 
             /*
