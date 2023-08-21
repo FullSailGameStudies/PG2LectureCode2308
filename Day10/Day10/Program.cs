@@ -119,40 +119,62 @@
                     while((line = sr.ReadLine()) != null)
                     {
                         string[] lineData = line.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
-
                         string text = lineData[0];
                         int num = int.Parse(lineData[1]);
                         int favHoliday = int.Parse(lineData[2]);
                         double grade = double.Parse(lineData[3]);
                         bool gonnaPass = bool.Parse(lineData[4]);
-
                     }
                 }
             }
-
-
-
             /*
                 ╔═══════════════════╗ 
                 ║ Splitting Strings ║
                 ╚═══════════════════╝ 
-
                 taking 1 string a separating it into multiple pieces of data
-
                 use the string's Split method
-
             */
             string csvString = "Batman;Bruce Wayne;Bats;The Dark Knight";
             string[] data = csvString.Split(';');
-
-
-
             /*
                 CHALLENGE 2:
-
-                    Open the CSV file and read the data into a new list of superheroes
-             
+                    Open the CSV file and read the data into a new list of superheroes             
             */
+            List<Superhero> otherDC = new();
+            if (File.Exists(heroFilePath))
+            {
+                //using (StreamReader sr = new StreamReader(heroFilePath))
+                //{
+                //    string line;
+                //    while ((line = sr.ReadLine()) != null)//split the data to get each hero line
+                //    {
+                //        string[] heroData = line.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                //        otherDC.Add(new Superhero()
+                //        {
+                //            Name = heroData[0],
+                //            Secret = heroData[1],
+                //            Power = Enum.Parse<Powers>(heroData[2])
+                //        });
+                //    }
+                //}
+                //OR, read the whole file into a string then process the string
+                string heroText = File.ReadAllText(heroFilePath);  //opens, reads, closes the file
+                string[] heroArray = heroText.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                foreach (string heroLine in heroArray)
+                {
+                    string[] heroData = heroLine.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                    otherDC.Add(new Superhero()
+                    {
+                        Name = heroData[0],
+                        Secret = heroData[1],
+                        Power = Enum.Parse<Powers>(heroData[2])
+                    });
+                }
+                foreach (var hero in otherDC)
+                {
+                    Console.WriteLine($"Hello citizen. I am {hero.Name} (aka {hero.Secret}). I can do {hero.Power}!");
+                }
+            }
 
 
 
