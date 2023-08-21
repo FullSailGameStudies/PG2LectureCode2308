@@ -83,14 +83,32 @@
             }
             else
                 Console.WriteLine($"ERROR: {directories} does not exists.");
-
-
             /*
                 CHALLENGE 1:
                     Create a List of Superhero.
                     Write the list to a CSV file             
             */
+            List<Superhero> dc = new();
+            dc.Add(new Superhero() { Name = "Batman", Secret = "Bruce Wayne", Power = Powers.Money });
+            dc.Add(new Superhero() { Name = "Flash", Secret = "Barry Allen", Power = Powers.Speed });
+            dc.Add(new Superhero() { Name = "Wonder Woman", Secret = "Diana Prince", Power = Powers.Strength });
+            dc.Add(new Superhero() { Name = "Aquaman", Secret = "Arthur Curry", Power = Powers.Swimming });
 
+            string heroFile = "dc.csv";
+            string heroFilePath = Path.Combine(directories, heroFile);
+            if (Directory.Exists(directories))
+            {
+                using (StreamWriter sw = new StreamWriter(heroFilePath))
+                {
+                    foreach (var hero in dc)
+                    {
+                        //2 delimiters: * inside the hero info and \n to separate the heroes
+                        sw.WriteLine($"{hero.Name}{delimiter}{hero.Secret}{delimiter}{hero.Power}");
+                    }
+                }
+            }
+            else
+                Console.WriteLine($"ERROR: {directories} does not exists.");
 
 
 
