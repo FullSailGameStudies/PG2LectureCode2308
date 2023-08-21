@@ -1,4 +1,6 @@
-﻿namespace Day10
+﻿using Newtonsoft.Json;
+
+namespace Day10
 {
 
     /*
@@ -189,12 +191,33 @@
 
             */
 
+            Superhero superhero = new Superhero() { Name = "Aquaman", Secret = "Arthur Curry", Power = Powers.Swimming };
+            string aquaFile = "Aquaman.json";
+            string aquaFilePath = Path.Combine(directories, aquaFile);
+            if (Directory.Exists(directories))
+            {
+                //using (StreamWriter sw = new StreamWriter(aquaFilePath))
+                //{
+                //    using (JsonTextWriter jtw = new JsonTextWriter(sw))
+                //    {
+                //        JsonSerializer serializer = new JsonSerializer();
+                //        serializer.Formatting = Formatting.Indented;
+                //        serializer.Serialize(jtw, superhero);
+                //    }
+                //}
+
+                File.WriteAllText(aquaFilePath, JsonConvert.SerializeObject(superhero, Formatting.Indented)); 
+            }
+            else
+                Console.WriteLine($"ERROR: {directories} does not exists.");
 
 
             /*
              * Challenge 3:
                 Serialize (write) the list of superheroes to a json file
             */
+
+
 
 
 
