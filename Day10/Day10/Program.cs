@@ -216,6 +216,14 @@ namespace Day10
              * Challenge 3:
                 Serialize (write) the list of superheroes to a json file
             */
+            string jsonHeroFilePath = Path.ChangeExtension(heroFilePath, "json"); 
+            if (Directory.Exists(directories))
+            {
+                File.WriteAllText(jsonHeroFilePath, JsonConvert.SerializeObject(dc, Formatting.Indented));
+            }
+            else
+                Console.WriteLine($"ERROR: {directories} does not exists.");
+
 
 
 
