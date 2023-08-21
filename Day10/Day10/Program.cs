@@ -61,10 +61,28 @@
 
             */
 
-            string directories = @"C:\temp\2212"; //use @ in front of the string to ignore escape sequences inside the string
-            string fileName = "tempFile.txt";
+            string directories = @"C:\temp\2308"; //use @ in front of the string to ignore escape sequences inside the string
+            string fileName = "sample.txt";
             string filePath = Path.Combine(directories, fileName); //use Path.Combine to get the proper directory separators
 
+            char delimiter = '*';
+            if (Directory.Exists(directories))
+            {
+                using (StreamWriter sw = new StreamWriter(filePath)) //IDisposable
+                {
+                    sw.Write("Batman rules. Aquaman drools.");
+                    sw.Write(delimiter);
+                    sw.Write(5);
+                    sw.Write(delimiter);
+                    sw.Write(420);
+                    sw.Write(delimiter);
+                    sw.Write(13.7);
+                    sw.Write(delimiter);
+                    sw.Write(true);
+                }
+            }
+            else
+                Console.WriteLine($"ERROR: {directories} does not exists.");
 
 
             /*
