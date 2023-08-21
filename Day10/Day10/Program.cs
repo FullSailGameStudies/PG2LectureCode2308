@@ -238,12 +238,23 @@ namespace Day10
                 Recreating the objects from the saved state (data) of objects
 
             */
-
-
-
+            if(File.Exists(aquaFilePath))
+            {
+                string aquaText = File.ReadAllText(aquaFilePath);
+                try
+                {
+                    Superhero? aquaDude = JsonConvert.DeserializeObject<Superhero>(aquaText);
+                    Console.WriteLine("---Deserializing Json Aquaman---");
+                    Console.WriteLine($"Hello citizen. I am {aquaDude.Name} (aka {aquaDude.Secret}). I can do {aquaDude.Power}!");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("The file was not the correct format.");
+                }
+            }
             /*
              
-                Challenge 4: deserialize the jla.json file into a list of superheroes
+                Challenge 4: deserialize the dc.json file into a list of superheroes
 
             */
         }
