@@ -1,4 +1,4 @@
-﻿//using System;
+﻿using System;
 
 namespace Day11CSharp
 {
@@ -6,6 +6,7 @@ namespace Day11CSharp
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             System.Console.Write("Hello Gotham!\n");
         }
     }
